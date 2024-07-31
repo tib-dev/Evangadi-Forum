@@ -1,0 +1,41 @@
+.footer_container a {
+  text-decoration: none;
+  color: #939a9c;
+}
+
+h3 {
+  color: #ffff;
+  margin: 10px 0;
+}
+.footer_container a:hover {
+  text-decoration: underline;
+}
+
+.footer_container {
+  background-color: #3b455a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 10px;
+}
+ul {
+  list-style-type: none;
+  gap: 10px;
+  color: #939a9c;
+}
+
+ul li {
+  padding: 5px;
+}
+.footer_container div {
+  width: 30%;
+}
+
+.socail_media_icon_container {
+  margin: 10px 0;
+  display: flex;
+}
+.socail_media_icon{
+  width: 50px;
+  border-radius: 25px solid #fff;
+}
