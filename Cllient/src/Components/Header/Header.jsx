@@ -21,7 +21,9 @@ function Header() {
               <Link to="/howIt">How it works</Link>
             </li>
             <li className={classes.auth}>
-              <Link to="/register" style={{ color: "white" }}>
+
+              {  }
+              <Link to="/login" style={{ color: "white" }}>
                 SIGN IN
               </Link>
             </li>

@@ -39,3 +39,7 @@ a {
 .header_container .auth a:hover {
   background-color: #fe8402;
 }
+
+.logo_container img {
+  width: 80%;
+}

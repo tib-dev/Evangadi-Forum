@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
-import classes from "./register.module.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
+import axiosBase from "../axios"; // Use the correct path to import axiosBase
+import classes from "./register.module.css";
 
 function Register() {
   const usernameDom = useRef();
@@ -31,9 +32,21 @@ function Register() {
       return;
     }
 
-    console.log(username, firstName, lastName, email, password);
+    try {
+      await axiosBase.post("/user/register", {
+        username: username,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+      });
+      alert("registered successfully");
+      Navigate("/login");
 
-    // Perform form submission logic here
+      console.log("User registered successfully");
+    } catch (error) {
+      console.log(error.response);
+    }
   };
 
   return (
@@ -42,7 +55,7 @@ function Register() {
         <div className={classes.form_container_wrapper}>
           <h5>Join the network</h5>
           <p>
-            Already have an account? <Link to="/signin">Sign in </Link>
+            Already have an account? <Link to="/login">Sign in </Link>
           </p>
 
           <form onSubmit={handleSubmit} className={classes.form_container}>

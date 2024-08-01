@@ -4,7 +4,6 @@
   background-position: center;
   background-size: cover;
 }
-
 .hero_container {
   display: flex;
   justify-content: space-between;
@@ -15,7 +14,7 @@
 }
 
 h5 {
-padding-top: 10px;
+  padding-top: 10px;
   font-size: 20px;
   color: #212529;
 }
@@ -36,7 +35,7 @@ padding-top: 10px;
 }
 
 .form_container_wrapper p {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 p {
@@ -51,9 +50,9 @@ p {
 .form_container_wrapper {
   width: 500px;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-bottom: 50px;
-  padding: 0 50px;
+  padding: 0 50px 15px;
   box-shadow: 0 0.5rem 1rem #00000026 !important;
   background-color: #fff;
 }
@@ -93,7 +92,7 @@ p {
 .about_container {
   align-items: start;
   padding-inline-start: 20px;
- margin-bottom: 200px;
+  margin-bottom: 200px;
   color: #212529;
 }
 
@@ -131,8 +130,12 @@ button {
   margin-top: 20px;
   color: white;
   background-color: rgb(81, 108, 240);
+  cursor: pointer;
 }
 
+button:hover {
+  background-color: #fe8402;
+}
 .input_password {
   position: relative;
 }
@@ -149,6 +152,10 @@ button {
 
 .have_account {
   margin: 10px;
+}
+
+.form_container_wrapper p a {
+  text-decoration: underline;
 }
 
 /* Responsive adjustments */

@@ -17,6 +17,7 @@ h3 {
   justify-content: center;
   align-items: center;
   padding: 60px 10px;
+  margin-top: 40px;
 }
 ul {
   list-style-type: none;
@@ -34,8 +35,11 @@ ul li {
 .socail_media_icon_container {
   margin: 10px 0;
   display: flex;
+  text-align: center;
 }
-.socail_media_icon{
+.socail_media_icon {
   width: 50px;
   border-radius: 25px solid #fff;
 }
+
+
