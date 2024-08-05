@@ -1,12 +1,28 @@
 const express = require("express");
 const router = express.Router();
-// auth middleware
-const authMiddleware = require("../middleware/authMiddleware");
-const { StatusCodes } = require("http-status-codes");
 
-// question routes
-router.get("/all-questions", authMiddleware, (req, res) => {
-  res.status(StatusCodes.OK).json({ msg: "All questions" });
-});
+const authMiddleware = require("../middleware/authMiddleware");
+const {
+  createQuestion,
+  allQuestions,
+  deleteQuestion,
+  updateQuestion,
+  getQuestionDetail,
+} = require("../controller/question");
+
+// use get for getting question detail
+router.get("/detail/:questionId", authMiddleware, getQuestionDetail);
+
+// Use POST for creating a new question
+router.post("/create-question", authMiddleware, createQuestion);
+
+// Use GET for retrieving all questions
+router.get("/all-questions", authMiddleware, allQuestions);
+
+// Use POST for updating a question
+router.post("/update-question", authMiddleware, updateQuestion);
+
+// Use POST for deleting a question
+router.post("/delete-question", authMiddleware, deleteQuestion);
 
 module.exports = router;

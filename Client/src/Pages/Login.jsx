@@ -1,12 +1,14 @@
 import React, { useRef, useState } from "react";
 import axiosBase from "../axios";
-import classes from "./register.module.css";
-import { Link, Navigate } from "react-router-dom";
+import classes from "./login.module.css"; // Make sure the path is correct
+import { Link, useNavigate } from "react-router-dom";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
-function login() {
+
+function Login() {
   const emailDom = useRef();
   const passwordDom = useRef();
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
@@ -21,32 +23,29 @@ function login() {
 
     // Basic form validation
     if (!email || !password) {
-      alert("All fields are required");
       return;
     }
 
     try {
-      await axiosBase.post("/user/register", {
-        email: email,
-        password: password,
+      const response = await axiosBase.post("/users/login", {
+        email,
+        password,
       });
-      alert("registered successfully");
-      Navigate("/home");
-
-      console.log("User registered successfully");
+      navigate("/");
+      console.log("User logged in successfully:", response.data);
     } catch (error) {
-      console.log(error.response);
+      console.error(error.response);
     }
   };
 
   return (
-    <section className={classes.register_container}>
+    <section className={classes.login_container}>
       <div className={classes.hero_container}>
         <div className={classes.form_container_wrapper}>
           <h5>Login to your account</h5>
           <p>
             Don't have an account?{" "}
-            <Link to="/register">Create a new account </Link>
+            <Link to="/register">Create a new account</Link>
           </p>
 
           <form onSubmit={handleSubmit} className={classes.form_container}>
@@ -58,7 +57,7 @@ function login() {
                 aria-label="Email address"
               />
             </div>
-            <div className={classes}>
+            <div className={classes.input_password}>
               <input
                 type={showPassword ? "text" : "password"}
                 ref={passwordDom}
@@ -102,4 +101,5 @@ function login() {
     </section>
   );
 }
-export default login;
+
+export default Login;

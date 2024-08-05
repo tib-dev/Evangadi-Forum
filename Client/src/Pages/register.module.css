@@ -1,0 +1,177 @@
+.register_container {
+  background-image: url(https://forum.ibrodev.com/bg-svg-f.svg);
+  height: 580px;
+  background-position: center;
+  background-size: cover;
+}
+.hero_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  width: 80%;
+  padding: 50px;
+}
+
+h5 {
+  padding-top: 10px;
+  font-size: 20px;
+  color: #212529;
+}
+
+.form_container {
+  width: 385px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form_container_wrapper a {
+  color: #fe8402;
+}
+
+.form_container_wrapper h5 {
+  font-size: 18px;
+  margin: 30px 0 10px;
+}
+
+.form_container_wrapper p {
+  font-size: 14px;
+}
+
+p {
+  text-align: center;
+  padding: 10px;
+  text-align: justify;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #212529;
+}
+
+.form_container_wrapper {
+  width: 500px;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 50px;
+  padding: 0 50px 15px;
+  box-shadow: 0 0.5rem 1rem #00000026 !important;
+  background-color: #fff;
+}
+
+.form_container div {
+  padding: 5px;
+  width: 100%;
+}
+
+.form_container input {
+  padding: 10px 15px;
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 5px;
+  border: 0.5px solid rgb(202, 202, 202);
+}
+
+.form_container div:nth-child(2) {
+  display: flex;
+  align-items: center;
+}
+
+.form_container div:nth-child(2) input:nth-child(1) {
+  margin-inline-end: 10px;
+}
+
+.form_container div:nth-child(2) input:nth-child(2) {
+  margin-inline-start: 10px;
+}
+
+.form_container_wrapper p,
+.form_container_wrapper h3 {
+  text-align: center;
+  color: #212529;
+}
+
+.about_container {
+  align-items: start;
+  padding-inline-start: 20px;
+  margin-bottom: 200px;
+  color: #212529;
+}
+
+small {
+  margin-bottom: 10px;
+  color: #fe8402;
+}
+
+.login_link {
+  width: 180px;
+  background-color: #fe8402;
+  border: none;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 5px 15px;
+  text-align: center;
+}
+
+.login_link a {
+  color: white;
+}
+
+h1 {
+  color: rgb(75, 69, 111);
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+}
+
+button {
+  font-size: 1rem;
+  padding: 5px 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  margin-top: 20px;
+  color: white;
+  background-color: rgb(81, 108, 240);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #fe8402;
+}
+.input_password {
+  position: relative;
+}
+
+.input_password span {
+  position: absolute;
+  top: 65%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: rgb(132, 132, 132);
+  cursor: pointer;
+}
+
+.have_account {
+  margin: 10px;
+}
+
+.form_container_wrapper p a {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero_container {
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+  }
+
+  .form_container_wrapper {
+    width: 100%;
+    padding: 20px;
+  }
+  .about_container {
+    padding: 0 20px;
+    margin-bottom: 20px;
+  }
+}

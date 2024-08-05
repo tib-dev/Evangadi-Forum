@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const dbConnection = require("../db/dbConfig");
 const jwt = require("jsonwebtoken");
-const { StatusCodes } = require("http-status-codes"); // Corrected import
+const { StatusCodes } = require("http-status-codes");
 
 // User Registration Handler
 const register = async (req, res) => {
@@ -98,7 +98,7 @@ const login = async (req, res) => {
 const checkUser = (req, res) => {
   const username = req.user.username;
   const userid = req.user.userId;
-  res.status(StatusCodes.OK).json({ msg: "Valide user", username, userid });
+  res.status(StatusCodes.OK).json({ msg: "Valid user", username, userid });
 };
 
 module.exports = { register, login, checkUser };

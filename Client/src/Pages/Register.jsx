@@ -1,8 +1,9 @@
 import React, { useRef, useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import axiosBase from "../axios"; // Use the correct path to import axiosBase
 import classes from "./register.module.css";
+
 function Register() {
   const usernameDom = useRef();
   const firstNameDom = useRef();
@@ -10,6 +11,7 @@ function Register() {
   const emailDom = useRef();
   const passwordDom = useRef();
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
@@ -32,19 +34,18 @@ function Register() {
     }
 
     try {
-      await axiosBase.post("/user/register", {
-        username: username,
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        password: password,
+      await axiosBase.post("/users/register", {
+        username,
+        firstname: firstName,
+        lastname: lastName,
+        email,
+        password,
       });
-      alert("registered successfully");
-      Navigate("/login");
-
-      console.log("User registered successfully");
+      alert("Registered successfully");
+      navigate("/login");
     } catch (error) {
-      console.log(error.response);
+      console.error(error.response);
+      alert(error.response?.data?.msg || "Registration failed");
     }
   };
 
