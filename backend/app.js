@@ -1,42 +1,42 @@
-require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const dbConnection = require("./db/dbConfig");
-
 const app = express();
+require("dotenv").config();
 const port = process.env.PORT || 3000;
+const bodyParser = require("body-parser");
+// create the connection to the database
+const dbConnection = require("./db/dbConfig");
 
 // Middleware to parse JSON request bodies
 app.use(express.json());
+
+// middleware body parsing middleware
+app.use(bodyParser.json());
+
+// Enable CORS for cross-origin requests
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.send("Hello, Evangadi Forum!");
-});
+// User routes middleware file
+const userRoutes = require("./routes/userRoute");
 
-// Connect to the MySQL database
+app.use("/api/users", userRoutes);
+
+// Question routes middleware file
+const questionRoutes = require("./routes/questionRoute");
+
+app.use("/api/questions", questionRoutes);
+
+// Start the server and check the database connection
 const start = async () => {
   try {
-    await dbConnection.execute('SELECT "Connected"');
-    console.log("Connection has been established successfully.");
+    const result = await dbConnection.execute("select 'test'");
+    console.log("Connected to the database!");
 
-    app.listen(port, (err) => {
-      if (err) {
-        console.error("Server failed to start:", err);
-        process.exit(1);
-      }
-      console.log(`Server is running on port ${port}`);
+    await app.listen(port, () => {
+      console.log(`Server running on port ${port}`);
     });
-
-    // Log environment variables for debugging
-    console.log(`DB_USER: ${process.env.DB_USER}`);
-    console.log(`DB_PASSWORD: ${process.env.DB_PASSWORD}`);
-    console.log(`DB_NAME: ${process.env.DB_NAME}`);
-    console.log(`DB_HOST: ${process.env.DB_HOST}`);
-    console.log(`PORT: ${process.env.PORT}`);
-  } catch (error) {
-    console.error("Failed to connect to the database:", error);
-    process.exit(1);
+  } catch (err) {
+    console.log(err.message);
   }
 };
 

@@ -1,3 +1,10 @@
+.footer_wrapper {
+  padding: 60px 10px;
+  margin-top: 40px;
+  margin: 0 auto;
+  background-color: #3b455a;
+}
+
 .footer_container a {
   text-decoration: none;
   color: #939a9c;
@@ -5,20 +12,33 @@
 
 h3 {
   color: #ffff;
-  margin: 10px 0;
+  margin: px 0 0 5px;
 }
 .footer_container a:hover {
   text-decoration: underline;
 }
 
 .footer_container {
-  background-color: #3b455a;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 60px 10px;
-  margin-top: 40px;
+  margin-inline: 95px;
+  padding-inline: 24px;
 }
+
+.social_media_links {
+  padding-inline: 10px;
+  margin-bottom: 20px;
+}
+
+.social_media_links img {
+  width: 50%;
+  object-fit: contain;
+  transition: 0.5s;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
 ul {
   list-style-type: none;
   gap: 10px;
@@ -29,7 +49,8 @@ ul li {
   padding: 5px;
 }
 .footer_container div {
-  width: 30%;
+  flex: 0 0 auto;
+  width: 33.33333333%;
 }
 
 .socail_media_icon_container {
@@ -37,9 +58,51 @@ ul li {
   display: flex;
   text-align: center;
 }
-.socail_media_icon {
-  width: 50px;
-  border-radius: 25px solid #fff;
+
+.socail_media_icon_container div {
+  margin: 0 10px;
 }
 
+.socail_media_icon {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border: 1px solid white;
+  margin: 1px 12px;
+  transition: 0.5s;
+}
 
+.socail_media_icon:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.useful_links a:hover {
+  color: #ffffff;
+  transition: 0.5s;
+}
+
+.socail_media_icon:hover {
+   background-color: #fafeff;
+ 
+}
+
+.socail_media_icon svg {
+    fill: #ffffff;
+  width: 25px;
+  height: 25px;
+  transition: 0.5s;
+}
+/* 
+.youtube_icon:hover {
+  fill: red;
+}
+.facebook_icon:hover {
+  fill: #2c66e4;
+}
+.instagram_icon:hover {
+  fill: #e83e8c;
+} */

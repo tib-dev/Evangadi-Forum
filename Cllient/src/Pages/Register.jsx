@@ -3,7 +3,6 @@ import { Link, Navigate } from "react-router-dom";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import axiosBase from "../axios"; // Use the correct path to import axiosBase
 import classes from "./register.module.css";
-
 function Register() {
   const usernameDom = useRef();
   const firstNameDom = useRef();
