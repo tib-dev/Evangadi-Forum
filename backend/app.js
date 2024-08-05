@@ -26,6 +26,14 @@ const questionRoutes = require("./routes/questionRoute");
 
 app.use("/api/questions", questionRoutes);
 
+// Answer routes middleware file
+
+const answerRoutes = require("./routes/answerRoute");
+
+app.use("/api/answers", answerRoutes);
+
+// Upvote routes middleware file
+
 // Start the server and check the database connection
 const start = async () => {
   try {
