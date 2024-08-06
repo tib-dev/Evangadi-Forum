@@ -3,9 +3,12 @@ const dbConnection = require("../db/dbConfig");
 const jwt = require("jsonwebtoken");
 const { StatusCodes } = require("http-status-codes");
 
+
 // User Registration Handler
 const register = async (req, res) => {
   const { username, firstname, lastname, email, password } = req.body;
+
+
 
   // Validate input
   if (!username || !firstname || !lastname || !email || !password) {

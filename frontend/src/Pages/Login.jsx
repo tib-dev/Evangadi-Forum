@@ -8,6 +8,7 @@ function Login() {
   const emailDom = useRef();
   const passwordDom = useRef();
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
@@ -23,6 +24,7 @@ function Login() {
 
     // Basic form validation
     if (!email || !password) {
+      setError("Both fields are required.");
       return;
     }
 
@@ -31,9 +33,15 @@ function Login() {
         email,
         password,
       });
-      navigate("/");
+      localStorage.setItem("token", response.data.token); //
       console.log("User logged in successfully:", response.data);
+      navigate("/");
     } catch (error) {
+      setError(
+        error.response
+          ? error.response.data.message
+          : "Login failed. Please try again."
+      );
       console.error(error.response);
     }
   };
@@ -47,7 +55,7 @@ function Login() {
             Don't have an account?{" "}
             <Link to="/register">Create a new account</Link>
           </p>
-
+          {error && <p className={classes.error}>{error}</p>}
           <form onSubmit={handleSubmit} className={classes.form_container}>
             <div>
               <input

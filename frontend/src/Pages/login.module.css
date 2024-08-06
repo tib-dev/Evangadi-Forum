@@ -121,7 +121,7 @@ h1 {
   margin-bottom: 25px;
 }
 
-button {
+/* button {
   font-size: 1rem;
   padding: 5px 10px;
   width: 100%;
@@ -131,7 +131,7 @@ button {
   color: white;
   background-color: rgb(81, 108, 240);
   cursor: pointer;
-}
+} */
 
 button:hover {
   background-color: #fe8402;
